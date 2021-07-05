@@ -51,8 +51,8 @@ PeaKD
   │     ├── envs.py: save directory paths for several usage.
   │     ├── save_teacher_outputs.py : save teacher prediction. Used for PTP, KD, PKD e.t.c. 
   │     ├── PTP.py : pretrain the student model with PTP. 
-  │     └── finetune.py: comprehensive training file for teacher and student models.
-  │
+  │     ├── finetune.py: comprehensive training file for teacher and student models.
+  │     └── finetune_ER.py: implementation of SPS.
   ├── preprocess.sh: downloads GLUE datasets.
   ├── Makefile: Makefile used for demo.
   ├── Developers_Guide.docx
