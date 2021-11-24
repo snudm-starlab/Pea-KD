@@ -179,7 +179,6 @@ layer_initialization = args.layer_initialization.split(',')
 for i in range(len(layer_initialization)):
     layer_initialization[i] = int(layer_initialization[i])
     
-#args.encoder_checkpoint = '/home/ikhyuncho23/data/outputs/KD/TinyBERT/pytorch_model.bin'
 student_encoder = load_model_finetune(student_encoder, layer_initialization, args.encoder_checkpoint, args, 'student', verbose= True)
 logger.info('*' * 77)
 student_classifier = load_model(student_classifier, args.cls_checkpoint, args, 'classifier', verbose= True)
