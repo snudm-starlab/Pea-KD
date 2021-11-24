@@ -228,10 +228,6 @@ if args.do_train:
 #########################################################################
 # Model Training
 #########################################################################
-# output_model_file = '{}_nlayer.{}_lr.{}_T.{}.alpha.{}_beta.{}_bs.{}'.format(args.task_name, args.student_hidden_layers,
-#                                                                             args.learning_rate,
-#                                                                             args.T, args.alpha, args.beta,
-#                                                                             args.train_batch_size * args.gradient_accumulation_steps)
 if args.do_train:
     global_step = 0
     nb_tr_steps = 0
@@ -278,10 +274,7 @@ if args.do_train:
                 loss = loss_dl + pt_loss
                         
             if n_gpu > 1:
-                #loss_1 = ce_loss.mean()  # mean() to average on multi-gpu.
-                #loss_2 = ce_loss_2.mean()
                 loss = loss.mean()
-                #loss = loss_2
             if args.fp16:
                 optimizer.backward(loss)
             else:
@@ -305,11 +298,6 @@ if args.do_train:
                     for param_group in optimizer.param_groups:
                         param_group['lr'] = lr_this_step
                         
-#                 else:
-#                     lr_this_step = args.learning_rate * warmup_linear(global_step / num_train_optimization_steps,
-#                                                                       args.warmup_proportion)
-#                     for param_group in optimizer.param_groups:
-#                         param_group['lr'] = lr_this_step
                     
                 optimizer.step()
                 optimizer.zero_grad()
