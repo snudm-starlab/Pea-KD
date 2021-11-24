@@ -82,7 +82,6 @@ encoder_bert = load_model_wonbon(encoder_bert, encoder_file, args, 'exact', verb
 classifier = load_model_wonbon(classifier, cls_file, args, 'exact', verbose=False)
 
 args.raw_data_dir = os.path.join(HOME_DATA_FOLDER, 'data_raw', task)
-#run_folder = os.path.join(KD_DIR, task, sub_dir, run_folder)
 
 
 
@@ -98,7 +97,7 @@ if 'dev' in interested_set or 'valid' in interested_set:
     dev_label_ids_ = dev_label_ids
     dev_label_ids = (dev_label_ids.numpy() == dev_pred_label)  # (408,) true랑 false로 되어있음
     logger.info('for dev, acc = {}, loss = {}'.format(dev_res['acc'], dev_res['loss']))
-    #logger.info('debug dev acc = {}'.format((dev_label_ids.numpy() == dev_pred_label).mean()))
+
     all_res['dev'] = dev_res
     all_res['dev_input_ids'] = dev_input_ids
     all_res['dev_pred_answers'] = dev_label_ids
@@ -113,7 +112,7 @@ if 'train' in interested_set:
     train_label_ids_ = train_label_ids
     train_label_ids = (train_label_ids.numpy() == train_pred_label)
     logger.info('for training, acc = {}, loss = {}'.format(train_res['acc'], train_res['loss']))
-    #logger.info('debug train acc = {}'.format((train_label_ids.numpy() == train_pred_label).mean()))
+
     all_res['train'] = train_res
     all_res['train_input_ids'] = train_input_ids
     all_res['train_pred_answers'] = train_label_ids
@@ -153,10 +152,8 @@ if prediction_mode in ['benchmark']:
 elif prediction_mode in ['teacher']:
     logger.info('saving teacher results')
     if not output_all_layers:
-        #fname = os.path.join(output_dir, task, task + f'_distilbert_normal_kd_teacher_{n_layer}layer_result_summary.pkl')
         fname = os.path.join(output_dir, task, task + f'_Originalbert_base_pkd_normal_kd_teacher_{n_layer}layer_result_summary_4_acc.pkl')
     else:
-        #fname = os.path.join(output_dir, task, task + f'_distilbert_patient_kd_teacher_{n_layer}layer_result_summary.pkl')
         fname = os.path.join(output_dir, task, task + f'_Originalbert_base_patient_kd_teacher_{n_layer}layer_result_summary_4_acc.pkl')
     with open(fname, 'wb') as fp:
         pickle.dump(all_res, fp)
