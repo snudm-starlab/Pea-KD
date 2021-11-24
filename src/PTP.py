@@ -346,6 +346,7 @@ if args.do_train:
                     logger.info("Validation Accuracy improved! "+str(eval_best_acc)+" -> "+str(eval_acc_1))
                     logger.info('='*77)
                     eval_best_acc = eval_acc_1
+                    
                     # Save the model if the accuracy is higher than the args.saving_criterion_acc
                     if eval_best_acc > args.saving_criterion_acc:
                         if args.n_gpu > 1:
@@ -362,6 +363,7 @@ if args.do_train:
                     logger.info("Validation improved! "+str(eval_loss_min)+" -> "+str(eval_loss))
                     logger.info('='*77)
                     eval_loss_min = eval_loss
+                    
                     # Save the model if the loss is lower than the args.saving_criterion_loss
                     if eval_loss < args.saving_criterion_loss:
                         if args.n_gpu > 1:
