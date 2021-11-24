@@ -232,7 +232,6 @@ if args.do_train:
     tr_loss = 0
     student_encoder.train()
     student_classifier.train()
-    
 
     log_train = open(os.path.join(args.output_dir, 'train_log.txt'), 'w', buffering=1)
     log_eval = open(os.path.join(args.output_dir, 'eval_log.txt'), 'w', buffering=1)
@@ -296,7 +295,6 @@ if args.do_train:
                     for param_group in optimizer.param_groups:
                         param_group['lr'] = lr_this_step
                         
-                    
                 optimizer.step()
                 optimizer.zero_grad()
                 global_step += 1
