@@ -1,5 +1,6 @@
 """
-The main file used to train student and teacher models. Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression) for [Patient Knowledge Distillation for BERT Model Compression](https://arxiv.org/abs/1908.09355).
+The main file used to train student and teacher models. 
+Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression) for [Patient Knowledge Distillation for BERT Model Compression](https://arxiv.org/abs/1908.09355).
 """
 
 import logging
@@ -341,15 +342,6 @@ if args.do_train:
                              lr=args.learning_rate,
                              warmup=args.warmup_proportion,
                              t_total=num_train_optimization_steps)
-
-
-#########################################################################
-# Model Training
-#########################################################################
-# output_model_file = '{}_nlayer.{}_lr.{}_T.{}.alpha.{}_beta.{}_bs.{}'.format(args.task_name, args.student_hidden_layers,
-#                                                                             args.learning_rate,
-#                                                                             args.T, args.alpha, args.beta,
-#                                                                             args.train_batch_size * args.gradient_accumulation_steps)
 
 
 print("*"*77)
