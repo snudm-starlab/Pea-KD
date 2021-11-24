@@ -3,7 +3,7 @@ This project is a PyTorch implementation of Parameter-efficient and accurate Kno
 
 ## Overview
 #### Brief Explanation of the paper. 
-Two main ideas proposed in the paper. Shuffled Parameter Sharing (SPS) and Pretraining with Teacher's Predictions (PTP). 
+Two main ideas were proposed in the paper. Shuffled Parameter Sharing (SPS) and Pretraining with Teacher's Predictions (PTP). 
 
 1) SPS 
 
