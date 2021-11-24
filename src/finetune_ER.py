@@ -194,11 +194,7 @@ if args.do_train:
     logger.info("  Num examples = %d", len(eval_examples))
     logger.info("  Batch size = %d", args.eval_batch_size)
 
-# if args.do_eval:
-#     test_examples, test_dataloader, test_label_ids = get_task_dataloader(task_name, 'test', tokenizer, args, SequentialSampler, batch_size=args.eval_batch_size)
-#     logger.info("***** Running evaluation *****")
-#     logger.info("  Num examples = %d", len(test_examples))
-#     logger.info("  Batch size = %d", args.eval_batch_size)
+
 
 
 #########################################################################
@@ -268,8 +264,6 @@ elif task_name == 'sst-2':
     log_per_step = 10
 else:
     log_per_step = 200 
-
-
 
 if args.do_train:
     param_optimizer = list(student_encoder.named_parameters()) + list(student_classifier.named_parameters())
