@@ -237,7 +237,6 @@ elif args.kd_model.lower() == 'kd.full':
 
     assert len(weights) == num_fc_layer, 'number of weights and number of FC layer must be equal to each other'
 
-    # weights = torch.tensor(np.array([1, 1, 1, 1, 2, 6])/12, dtype=torch.float, device=device, requires_grad=False)
     if args.fp16:
         weights = weights.half()
     student_encoder = BertForSequenceClassificationEncoder(student_config, output_all_encoded_layers=True,
