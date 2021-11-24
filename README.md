@@ -65,7 +65,7 @@ PeaKD
 - GLUE datasets
 
 * Note that: 
-    * GLUE datasets consists of CoLA, diagnostic, MNLI, MRPC, QNLI, QQP, RTE, SNLI, SST-2, STS-B, WNLI
+    * GLUE datasets consist of CoLA, diagnostic, MNLI, MRPC, QNLI, QQP, RTE, SNLI, SST-2, STS-B, WNLI
     * You can download GLUE datasets by running bash 'preprocess.sh'.
 
 
