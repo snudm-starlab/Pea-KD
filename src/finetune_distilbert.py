@@ -1,5 +1,6 @@
 """
-The main file used to train student and teacher models. Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression) for [Patient Knowledge Distillation for BERT Model Compression](https://arxiv.org/abs/1908.09355).
+The main file used to train student and teacher models. Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression) 
+for [Patient Knowledge Distillation for BERT Model Compression](https://arxiv.org/abs/1908.09355).
 """
 
 import logging
@@ -160,14 +161,10 @@ if args.do_train:
     read_set = 'train'
     if args.teacher_prediction is not None and args.alpha > 0:
         logger.info('loading teacher\'s prediction')
-        teacher_predictions = pickle.load(open(args.teacher_prediction, 'rb'))['train'] if args.teacher_prediction is not None else None
-        #teacher_predictions = pickle.load(open(args.real_teacher, 'rb'))['train'] if args.real_teacher is not None else logger.info("No real teacher")
-        
+        teacher_predictions = pickle.load(open(args.teacher_prediction, 'rb'))['train'] if args.teacher_prediction is not None else None        
         logger.info('teacher acc = %.2f, teacher loss = %.5f' % (teacher_predictions['acc']*100, teacher_predictions['loss']))
         
-        teacher_predictions_ = pickle.load(open(args.teacher_prediction, 'rb'))['dev'] if args.teacher_prediction is not None else None
-        #teacher_predictions_ = pickle.load(open(args.real_teacher, 'rb'))['dev'] if args.real_teacher is not None else None
-        
+        teacher_predictions_ = pickle.load(open(args.teacher_prediction, 'rb'))['dev'] if args.teacher_prediction is not None else None        
         logger.info('teacher acc = %.2f, teacher loss = %.5f' % (teacher_predictions_['acc']*100, teacher_predictions_['loss']))
         
         
@@ -198,12 +195,6 @@ if args.do_train:
     logger.info("***** Running evaluation *****")
     logger.info("  Num examples = %d", len(eval_examples))
     logger.info("  Batch size = %d", args.eval_batch_size)
-
-# if args.do_eval:
-#     test_examples, test_dataloader, test_label_ids = get_task_dataloader(task_name, 'test', tokenizer, args, SequentialSampler, batch_size=args.eval_batch_size)
-#     logger.info("***** Running evaluation *****")
-#     logger.info("  Num examples = %d", len(test_examples))
-#     logger.info("  Batch size = %d", args.eval_batch_size)
 
 
 #########################################################################
