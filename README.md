@@ -7,11 +7,11 @@ Two main ideas were proposed in the paper. Shuffled Parameter Sharing (SPS) and 
 
 1) SPS 
 
-- step1 : Paired Parameter Sharing. 
+- Step1 : Paired Parameter Sharing. 
 We first double the layers of the student model. Then, we share the parameters between the bottom half and the upper half. 
 By this way, the model has twice the number of layers and thus can have more 'effective' model complexity while having the same number of actual parameters. 
 
-- step2 : Shuffling. 
+- Step2 : Shuffling. 
 In addition to step1, we shuffle the Query and Key parameters between the shared pairs in order to further increase the 'effective' model complexity. 
 By this shuffling process, the parameter-shared pairs can have higher model complexity and thus better representation power. 
 We will call this architecture the SPS model. 
