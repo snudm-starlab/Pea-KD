@@ -308,7 +308,7 @@ if args.do_train:
                 logger.info("Validation Loss : "+str(eval_loss_min)+" Validation Accuracy : "+str(eval_best_acc))
                 raise ValueError('Skipping the rest epochs due to overfitting')
                 
-            # We evaluate the model on validation dataset            
+            # We evaluate the model on the validation dataset            
             if (global_step % log_per_step == 0) & (epoch > -1) :
                 student_encoder.eval()
                 student_classifier.eval()
