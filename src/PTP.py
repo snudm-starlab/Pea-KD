@@ -301,7 +301,7 @@ if args.do_train:
                 optimizer.zero_grad()
                 global_step += 1
 
-            # We stop the training after n epochs due to overfitting
+            # We stop the training after n epochs to avoid overfitting
             if (epoch == 4):
                 logger.info("")
                 logger.info('='*77)
