@@ -198,8 +198,6 @@ if args.do_train:
     logger.info("  Num examples = %d", len(eval_examples))
     logger.info("  Batch size = %d", args.eval_batch_size)
 
-# if args.do_eval:
-
 #########################################################################
 # Prepare model
 #########################################################################
