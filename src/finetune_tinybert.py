@@ -56,7 +56,6 @@ teacher_prediction_fixed = args.teacher_prediction
 task_name_fixed = args.task
 if DEBUG:
     logger.info("IN DEBUG MODE")
-    
     argv = get_predefine_argv(args, 'glue', args.task, args.train_type, args.student_hidden_layers)
     
     try:
@@ -136,8 +135,7 @@ logger.info('Input Argument Information')
 args_dict = vars(args)
 for a in args_dict:
     logger.info('%-28s  %s' % (a, args_dict[a]))
-    
-    
+  
 #########################################################################
 # Prepare  Data
 #########################################################################
