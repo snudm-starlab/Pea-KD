@@ -10,7 +10,6 @@
 #
 # This software is free of charge under research purposes.
 # For commercial purposes, please contact the authors.
-#
 ################################################################################
 
 """
