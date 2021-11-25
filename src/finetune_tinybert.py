@@ -31,7 +31,6 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
 #########################################################################
 # Prepare Parser
 ##########################################################################
@@ -141,7 +140,8 @@ for a in args_dict:
     
 #########################################################################
 # Prepare  Data
-##########################################################################
+#########################################################################
+
 task_name = args.task_name.lower()
 
 if task_name not in processors and 'race' not in task_name:
