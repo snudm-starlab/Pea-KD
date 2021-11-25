@@ -12,8 +12,10 @@
 # For commercial purposes, please contact the authors.
 #
 ################################################################################
+
 """
-File used to save the teacher model's outputs to later on use for KD, PKD, PTP. Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression) for [Patient Knowledge Distillation for BERT Model Compression](https://arxiv.org/abs/1908.09355).
+File used to save the teacher model's outputs to later on use for KD, PKD, PTP. Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression)
+for [Patient Knowledge Distillation for BERT Model Compression](https://arxiv.org/abs/1908.09355).
 """
 
 import pickle
@@ -27,9 +29,6 @@ import sys
 import pandas as pd
 import numpy as np
 from torch.utils.data import SequentialSampler
-
-# PROJECT_FOLDER = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# sys.path.append(PROJECT_FOLDER)
 
 from utils import nli_data_processing
 from envs import PROJECT_FOLDER, HOME_DATA_FOLDER, HOME_OUTPUT_FOLDER
