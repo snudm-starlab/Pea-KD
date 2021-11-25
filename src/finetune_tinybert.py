@@ -169,7 +169,6 @@ if args.do_train:
         teacher_predictions_ = pickle.load(open(args.teacher_prediction, 'rb'))['dev'] if args.teacher_prediction is not None else None        
         logger.info('teacher acc = %.2f, teacher loss = %.5f' % (teacher_predictions_['acc']*100, teacher_predictions_['loss']))
         
-        
         if args.kd_model == 'kd':
             train_examples, train_dataloader, _ = get_task_dataloader(task_name, read_set, tokenizer, args, SequentialSampler,
                                                                       batch_size=args.train_batch_size,
@@ -201,6 +200,7 @@ if args.do_train:
 #########################################################################
 # Prepare model
 #########################################################################
+
 student_config = BertConfig(os.path.join(args.bert_model, 'bert_config.json'))
 if args.kd_model.lower() in ['kd', 'kd.cls', 'kd.u', 'kd.i']:
     logger.info('using normal Knowledge Distillation')
@@ -237,7 +237,6 @@ elif args.kd_model.lower() == 'kd.full':
 
     assert len(weights) == num_fc_layer, 'number of weights and number of FC layer must be equal to each other'
 
-    # weights = torch.tensor(np.array([1, 1, 1, 1, 2, 6])/12, dtype=torch.float, device=device, requires_grad=False)
     if args.fp16:
         weights = weights.half()
     student_encoder = BertForSequenceClassificationEncoder(student_config, output_all_encoded_layers=True,
@@ -277,8 +276,6 @@ else:
 
 
 if args.do_train:
-    
-    
 ##############################################################################################################################################    
     print('*'*77)    
         # Determine the layers to freeze
