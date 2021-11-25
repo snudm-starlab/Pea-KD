@@ -120,7 +120,7 @@ if 'train' in interested_set:
     all_res['train_labels'] = train_label_ids_
         
 if prediction_mode in ['benchmark']:
-    logger.info('saving benchmark results')
+    logger.info('Saving benchmark results')
     processor = nli_data_processing.processors[task.lower()]()
     label_list = processor.get_labels()
     test_pred_label = [label_list[tr] for tr in test_res['pred_logit'].argmax(1)]
