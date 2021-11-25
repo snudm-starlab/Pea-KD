@@ -120,16 +120,6 @@ if 'train' in interested_set:
     all_res['train_segment_ids'] = train_segment_ids
     all_res['train_labels'] = train_label_ids_
         
-# if 'test' in interested_set:
-#     test_examples,test_input_ids, test_dataloader, test_label_ids, test_input_mask, test_segment_ids = get_task_dataloader_pretrain(task.lower(), 'test', tokenizer, args,SequentialSampler, args.eval_batch_size)
-#     test_res = eval_model_dataloader(encoder_bert, classifier, test_dataloader, args.device, detailed=True, verbose=False)
-#     test_pred_label = test_res['pred_logit'].argmax(1)
-#     logger.info('for test, acc = {}, loss = {}'.format(test_res['acc'], test_res['loss']))
-#     logger.info('debug test acc = {}'.format((test_label_ids.numpy() == test_pred_label).mean()))
-#     test_label_ids_ = test_label_ids
-#     test_label_ids = (test_label_ids.numpy() == test_pred_label)
-
-        
 if prediction_mode in ['benchmark']:
     logger.info('saving benchmark results')
     processor = nli_data_processing.processors[task.lower()]()
