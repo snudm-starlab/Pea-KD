@@ -72,6 +72,7 @@ n_layer = 12
 
 #specify the task.
 task = 'CoLA'
+
 #specify the directory of saved teacher model.
 encoder_file = os.path.join(HOME_OUTPUT_FOLDER, 'CoLA/BERT12_4/BERT.encoder_acc.pkl')
 cls_file = os.path.join(HOME_OUTPUT_FOLDER, 'CoLA/BERT12_4/BERT.cls_acc.pkl')
@@ -127,16 +128,7 @@ if 'train' in interested_set:
 #     logger.info('debug test acc = {}'.format((test_label_ids.numpy() == test_pred_label).mean()))
 #     test_label_ids_ = test_label_ids
 #     test_label_ids = (test_label_ids.numpy() == test_pred_label)
-#     if task == 'race-merge':
-#         middle_id = np.array(['middle' in t.mrc_id for t in test_examples])
-#         logger.info('race-middle test acc = {}'.format((test_label_ids.numpy()[middle_id] == test_pred_label[middle_id]).mean()))
-#         logger.info('race-hight test acc = {}'.format((test_label_ids.numpy()[~middle_id] == test_pred_label[~middle_id]).mean()))
-#     all_res['test'] = test_res
-#     all_res['test_input_ids'] = test_input_ids
-#     all_res['test_pred_answers'] = test_label_ids
-#     all_res['test_input_mask'] = test_input_mask
-#     all_res['test_segment_ids'] = test_segment_ids
-#     all_res['test_labels'] = test_label_ids_
+
         
 if prediction_mode in ['benchmark']:
     logger.info('saving benchmark results')
