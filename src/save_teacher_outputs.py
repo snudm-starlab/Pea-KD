@@ -138,4 +138,4 @@ elif prediction_mode in ['teacher']:
         fname = os.path.join(output_dir, task, task + f'_Originalbert_base_patient_kd_teacher_{n_layer}layer_result_summary_4_acc.pkl')
     with open(fname, 'wb') as fp:
         pickle.dump(all_res, fp)
-logger.info(f'predicting for task {task} Done!')
+logger.info(f'predicting for task {task} done!')
