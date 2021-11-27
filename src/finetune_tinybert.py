@@ -307,9 +307,11 @@ if args.do_train:
         try:
             from apex.contrib.optimizers import FP16_Optimizer
             from apex.contrib.optimizers import FusedAdam
+            
         except ImportError:
             raise ImportError(
                 "Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training.")
+        # Optimizer    
         optimizer = FusedAdam(optimizer_grouped_parameters,
                               lr=args.learning_rate,
                               bias_correction=False,
@@ -320,6 +322,7 @@ if args.do_train:
             optimizer = FP16_Optimizer(optimizer, static_loss_scale=args.loss_scale)
     else:
         logger.info('FP16 is not activated, use BertAdam')
+        # Optimizer    
         optimizer = BertAdam(optimizer_grouped_parameters,
                              lr=args.learning_rate,
                              warmup=args.warmup_proportion,
