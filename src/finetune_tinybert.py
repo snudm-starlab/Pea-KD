@@ -309,7 +309,6 @@ if args.do_train:
         except ImportError:
             raise ImportError(
                 "Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training.")
-
         optimizer = FusedAdam(optimizer_grouped_parameters,
                               lr=args.learning_rate,
                               bias_correction=False,
@@ -329,6 +328,7 @@ if args.do_train:
 #########################################################################
 # Model Training
 #########################################################################
+
 # output_model_file = '{}_nlayer.{}_lr.{}_T.{}.alpha.{}_beta.{}_bs.{}'.format(args.task_name, args.student_hidden_layers,
 #                                                                             args.learning_rate,
 #                                                                             args.T, args.alpha, args.beta,
