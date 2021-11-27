@@ -220,6 +220,7 @@ if args.kd_model.lower() in ['kd', 'kd.cls', 'kd.u', 'kd.i']:
     for i in range(len(layer_initialization)):
         layer_initialization[i] = int(layer_initialization[i])
     
+    # Checkpoint path for distilbert (need to change)
     checkpoint_distilbert = '/home/ikhyuncho23/data/outputs/KD/Distilbert/distilbert_pytorch_model.bin'
     checkpoint_bert_base = '/home/ikhyuncho23/data/models/pretrained/bert-base-uncased/pytorch_model.bin'
     student_encoder = load_model_from_distilbert(student_encoder, layer_initialization, checkpoint_distilbert, checkpoint_bert_base, args, 'student', verbose= True)
