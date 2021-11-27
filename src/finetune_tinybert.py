@@ -154,6 +154,7 @@ else:
     label_list = processor.get_labels()
     num_labels = len(label_list)
 
+# Load pre-trained tokenizer for BERT
 tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=True)
 
 if args.do_train:
