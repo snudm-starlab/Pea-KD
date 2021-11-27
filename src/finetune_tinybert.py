@@ -381,6 +381,7 @@ if args.do_train:
             else:
                 raise ValueError(f'{args.kd_model} not implemented yet')
             
+            # Compute losses for distillation
             loss_dl, kd_loss, ce_loss = distillation_loss(logits_pred_student, label_ids, teacher_pred, T=args.T, alpha=args.alpha)
             
             if args.beta > 0:
