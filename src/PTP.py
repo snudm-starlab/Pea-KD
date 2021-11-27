@@ -126,7 +126,6 @@ for a in args_dict:
 #########################################################################
 # Prepare  Data
 #########################################################################
-
 teacher_summary = args.teacher_prediction
 # We use PTP labels for the training.
 train_dataloader, all_label_ids = get_pretrain_dataloader_PTP(task_name = args.task, types = 'train', train_type = args.train_type, teacher_summary = teacher_summary)    
