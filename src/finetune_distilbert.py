@@ -205,7 +205,7 @@ if args.kd_model.lower() in ['kd', 'kd.cls', 'kd.u', 'kd.i']:
     logger.info('using normal Knowledge Distillation')
     output_all_layers = (args.kd_model.lower() in ['kd.cls', 'kd.u', 'kd.i'])
     
-    # If original model
+    # If an original model
     if args.model_type == 'Original':
         student_encoder, student_classifier = init_model(task_name, output_all_layers, args.student_hidden_layers, student_config)
     
