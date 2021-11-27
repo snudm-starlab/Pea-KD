@@ -168,7 +168,6 @@ if args.do_train:
         teacher_predictions_ = pickle.load(open(args.teacher_prediction, 'rb'))['dev'] if args.teacher_prediction is not None else None        
         logger.info('teacher acc = %.2f, teacher loss = %.5f' % (teacher_predictions_['acc']*100, teacher_predictions_['loss']))
         
-        
         if args.kd_model == 'kd':
             train_examples, train_dataloader, _ = get_task_dataloader(task_name, read_set, tokenizer, args, SequentialSampler,
                                                                       batch_size=args.train_batch_size,
@@ -178,7 +177,6 @@ if args.do_train:
                                                                       batch_size=args.train_batch_size,
                                                                       knowledge=teacher_predictions['pred_logit'],
                                                                       extra_knowledge=teacher_predictions['feature_maps'])
-
     else:
         if args.alpha > 0:
             raise ValueError('please specify teacher\'s prediction file for KD training')
@@ -201,6 +199,7 @@ if args.do_train:
 #########################################################################
 # Prepare model
 #########################################################################
+
 student_config = BertConfig(os.path.join(args.bert_model, 'bert_config.json'))
 if args.kd_model.lower() in ['kd', 'kd.cls', 'kd.u', 'kd.i']:
     logger.info('using normal Knowledge Distillation')
