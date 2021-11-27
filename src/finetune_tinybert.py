@@ -71,7 +71,6 @@ if load_model_dir_fixed is not None:
     args.load_model_dir = load_model_dir_fixed
 args = complete_argument(args, args.output_dir, args.load_model_dir)
 
-    
 if train_seed_fixed is not None:
     args.train_seed = train_seed_fixed
 if saving_criterion_acc_fixed is not None:
