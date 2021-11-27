@@ -205,11 +205,11 @@ if args.kd_model.lower() in ['kd', 'kd.cls', 'kd.u', 'kd.i']:
     logger.info('using normal Knowledge Distillation')
     output_all_layers = (args.kd_model.lower() in ['kd.cls', 'kd.u', 'kd.i'])
     
-    # if original model
+    # If original model
     if args.model_type == 'Original':
         student_encoder, student_classifier = init_model(task_name, output_all_layers, args.student_hidden_layers, student_config)
     
-    # if SPS model for 1,2,3-layer student.
+    # If SPS model for 1,2,3-layer student.
     elif args.model_type == 'SPS_1':
         student_encoder, student_classifier = init_model_SPS_1(task_name, output_all_layers, args.student_hidden_layers, student_config, shuffle = False)
     elif args.model_type == 'SPS_2':
