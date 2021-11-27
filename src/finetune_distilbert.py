@@ -7,12 +7,13 @@ import logging
 import os
 import random
 import pickle
+from tqdm import tqdm, trange
 
 import numpy as np
 import torch
 from torch.utils.data import RandomSampler, SequentialSampler
-from tqdm import tqdm, trange
 import torch.nn as nn
+
 from BERT.pytorch_pretrained_bert.modeling import BertConfig
 from BERT.pytorch_pretrained_bert.optimization import BertAdam, warmup_linear
 from BERT.pytorch_pretrained_bert.tokenization import BertTokenizer
