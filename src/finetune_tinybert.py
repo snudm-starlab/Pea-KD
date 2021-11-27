@@ -222,6 +222,7 @@ if args.kd_model.lower() in ['kd', 'kd.cls', 'kd.u', 'kd.i']:
     student_encoder = load_model_finetune(student_encoder, layer_initialization, args.encoder_checkpoint, args, 'student', verbose= True)
     logger.info('*' * 77)
     student_classifier = load_model(student_classifier, args.cls_checkpoint, args, 'classifier', verbose= True)
+    
 elif args.kd_model.lower() == 'kd.full':
     logger.info('using FULL Knowledge Distillation')
     layer_idx = [int(i) for i in args.fc_layer_idx.split(',')]
