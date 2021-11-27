@@ -111,7 +111,7 @@ args.train_batch_size = args.train_batch_size // args.gradient_accumulation_step
 logger.info('actual batch size on all GPU = %d' % args.train_batch_size)
 device, n_gpu = args.device, args.n_gpu
 
-###################################################################################################################################
+###################################################################################
     
 random.seed(args.train_seed)
 np.random.seed(args.train_seed)
@@ -270,10 +270,8 @@ elif task_name == 'sst-2':
 else:
     log_per_step = 200 
 
-
-
 if args.do_train:
-##############################################################################################################################################    
+    ##############################################################################################################################################    
     print('*'*77)    
         # Determine the layers to freeze
     if args.freeze_layer is not None:    
