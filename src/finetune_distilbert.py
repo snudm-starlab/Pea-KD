@@ -55,7 +55,6 @@ fp16_fixed = args.fp16
 learning_rate_fixed = args.learning_rate
 teacher_prediction_fixed = args.teacher_prediction
 
-#teacher_num = args.teacher_numb
 task_name_fixed = args.task
 if DEBUG:
     logger.info("IN DEBUG MODE")
