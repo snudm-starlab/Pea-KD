@@ -319,9 +319,7 @@ if args.do_train:
     eval_best_acc_and_f1 = 0
     eval_best_f1 = 0 
     loss_acc = 0
-    for epoch in trange(int(args.num_train_epochs), desc="Epoch"):
-        
-        # n = max(20 - 2*epoch, 1)
+    for epoch in trange(int(args.num_train_epochs), desc="Epoch"):        
         tr_loss, tr_ce_loss, tr_kd_loss, tr_acc = 0, 0, 0, 0
         nb_tr_examples, nb_tr_steps = 0, 0
         
