@@ -201,7 +201,6 @@ if args.do_train:
     logger.info("  Batch size = %d", args.eval_batch_size)
 
 # if args.do_eval:
-#     test_examples, test_dataloader, test_label_ids = get_task_dataloader(task_name, 'test', tokenizer, args, SequentialSampler, batch_size=args.eval_batch_size)
 
 #########################################################################
 # Prepare model
