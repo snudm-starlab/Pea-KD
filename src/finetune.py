@@ -168,9 +168,7 @@ if args.do_train:
         teacher_predictions = pickle.load(open(args.teacher_prediction, 'rb'))['train'] if args.teacher_prediction is not None else None       
         logger.info('teacher acc = %.2f, teacher loss = %.5f' % (teacher_predictions['acc']*100, teacher_predictions['loss']))
         
-        teacher_predictions_ = pickle.load(open(args.teacher_prediction, 'rb'))['dev'] if args.teacher_prediction is not None else None
-        #teacher_predictions_ = pickle.load(open(args.real_teacher, 'rb'))['dev'] if args.real_teacher is not None else None
-        
+        teacher_predictions_ = pickle.load(open(args.teacher_prediction, 'rb'))['dev'] if args.teacher_prediction is not None else None        
         logger.info('teacher acc = %.2f, teacher loss = %.5f' % (teacher_predictions_['acc']*100, teacher_predictions_['loss']))
         
         
