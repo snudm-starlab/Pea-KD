@@ -238,7 +238,6 @@ elif args.kd_model.lower() == 'kd.full':
 
     assert len(weights) == num_fc_layer, 'number of weights and number of FC layer must be equal to each other'
 
-    # weights = torch.tensor(np.array([1, 1, 1, 1, 2, 6])/12, dtype=torch.float, device=device, requires_grad=False)
     if args.fp16:
         weights = weights.half()
     student_encoder = BertForSequenceClassificationEncoder(student_config, output_all_encoded_layers=True,
@@ -277,9 +276,7 @@ else:
 
 
 
-if args.do_train:
-    
-    
+if args.do_train:    
 ##############################################################################################################################################    
     print('*'*77)    
         # Determine the layers to freeze
@@ -337,11 +334,6 @@ if args.do_train:
 #########################################################################
 # Model Training
 #########################################################################
-# output_model_file = '{}_nlayer.{}_lr.{}_T.{}.alpha.{}_beta.{}_bs.{}'.format(args.task_name, args.student_hidden_layers,
-#                                                                             args.learning_rate,
-#                                                                             args.T, args.alpha, args.beta,
-#                                                                             args.train_batch_size * args.gradient_accumulation_steps)
-
 
 print("*"*77)
 print("The Shuffle is :"+str(shuffle_initialization))
@@ -457,13 +449,6 @@ if args.do_train:
                 optimizer.step()
                 optimizer.zero_grad()
                 global_step += 1
-
-#             if global_step % args.log_every_step == 0:
-#                 print('{},{},{},{},{},{},{},{}'.format(epoch+1, global_step, step, tr_acc / nb_tr_examples,
-#                                                        tr_loss / nb_tr_examples, tr_kd_loss / nb_tr_examples,
-#                                                        tr_ce_loss / nb_tr_examples, tr_loss_pt / nb_tr_examples),
-#                       file=log_train)
-            
             
             if global_step % 50 == 0:
                 if args.freeze_layer is not None:
@@ -475,7 +460,6 @@ if args.do_train:
                     for name, param in student_encoder.named_parameters():
                         if name in list_of_frozen_params:
                              L1_list.append(torch.mean(torch.abs(param)))
-    #                         print(name+": "+str(torch.mean(torch.abs(param))))
                     for i in range(len(list_of_frozen_params_L1)):
                         if L1_list[i] != list_of_frozen_params_L1[i]:
                             error +=1
