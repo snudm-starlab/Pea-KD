@@ -493,13 +493,6 @@ if args.do_train:
                     result = eval_model_dataloader_nli(student_encoder, student_classifier, eval_dataloader, device, False)
                 else:
                     test_res = eval_model_dataloader_nli_finetune(args.task_name.lower(), eval_label_ids, student_encoder, student_classifier, eval_dataloader, args.kd_model, num_labels, device, args.weights, args.fc_layer_idx, output_mode, rand_shuffle = shuffle_initialization)
-                    
-#                 if task_name == 'cola':
-#                     print('{},{},{}'.format(epoch+1, test_res['mcc'], test_res['eval_loss']), file=log_eval)
-#                 elif task_name == 'mrpc':
-#                     print('{},{},{}'.format(epoch+1, test_res['f1'], test_res['eval_loss']), file=log_eval)
-#                 else:
-#                     print('{},{},{}'.format(epoch+1, test_res['acc'], test_res['eval_loss']), file=log_eval)
                 
                 
                 # Saving checkpoints when the conditions below are met.
