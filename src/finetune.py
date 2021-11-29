@@ -181,13 +181,13 @@ if args.do_train:
                                                                       batch_size=args.train_batch_size,
                                                                       knowledge=teacher_predictions['pred_logit'],
                                                                       extra_knowledge=teacher_predictions['feature_maps'])
-
     else:
         if args.alpha > 0:
             raise ValueError('please specify teacher\'s prediction file for KD training')
         logger.info('runing simple fine-tuning because teacher\'s prediction is not provided')
         train_examples, train_dataloader, _ = get_task_dataloader(task_name, read_set, tokenizer, args, SequentialSampler,
                                                                   batch_size=args.train_batch_size)
+        
     num_train_optimization_steps = int(len(train_examples) / args.train_batch_size / args.gradient_accumulation_steps) * args.num_train_epochs
     logger.info("***** Running training *****")
     logger.info("  Num examples = %d", len(train_examples))
