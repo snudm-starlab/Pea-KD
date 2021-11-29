@@ -204,7 +204,6 @@ if args.do_train:
 #     test_examples, test_dataloader, test_label_ids = get_task_dataloader(task_name, 'test', tokenizer, args, SequentialSampler, batch_size=args.eval_batch_size)
 #     logger.info("***** Running evaluation *****")
 #     logger.info("  Num examples = %d", len(test_examples))
-#     logger.info("  Batch size = %d", args.eval_batch_size)
 
 
 #########################################################################
