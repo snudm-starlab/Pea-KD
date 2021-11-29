@@ -223,7 +223,6 @@ if args.kd_model.lower() in ['kd', 'kd.cls', 'kd.u', 'kd.i']:
         elif ('True' in shuffle_initialization[i]):
             shuffle_initialization[i] = True
 
-    #args.encoder_checkpoint = '/home/ikhyuncho23/data/outputs/KD/TinyBERT/pytorch_model.bin'
     student_encoder = load_model_finetune(student_encoder, layer_initialization, args.encoder_checkpoint, args, 'student', verbose= True)
     logger.info('*' * 77)
     student_classifier = load_model(student_classifier, args.cls_checkpoint, args, 'classifier', verbose= True)
