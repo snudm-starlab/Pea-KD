@@ -24,7 +24,6 @@ from utils.utils import load_model, count_parameters, eval_model_dataloader_nli_
 from utils.KD_loss import distillation_loss, patience_loss
 from envs import HOME_DATA_FOLDER
 from BERT.pytorch_pretrained_bert.quantization_modules import quantization
-
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)
@@ -115,7 +114,6 @@ args.model_type = model_type_fixed
 args.raw_data_dir = os.path.join(HOME_DATA_FOLDER, 'data_raw', args.task_name)
 args.feat_data_dir = os.path.join(HOME_DATA_FOLDER, 'data_feat', args.task_name)
 args.train_batch_size = args.train_batch_size // args.gradient_accumulation_steps
-
 logger.info('actual batch size on all GPU = %d' % args.train_batch_size)
 device, n_gpu = args.device, args.n_gpu
 
