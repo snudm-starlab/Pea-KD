@@ -12,8 +12,7 @@
 # For commercial purposes, please contact the authors.
 ################################################################################
 
-"""
-File used to save the teacher model's outputs to later on use for KD, PKD, PTP. Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression)
+"""File used to save the teacher model's outputs to later on use for KD, PKD, PTP. Mainly based on [GitHub repository](https://github.com/intersun/PKD-for-BERT-Model-Compression)
 for [Patient Knowledge Distillation for BERT Model Compression](https://arxiv.org/abs/1908.09355).
 """
 
