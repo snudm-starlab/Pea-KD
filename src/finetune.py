@@ -39,6 +39,7 @@ logger = logging.getLogger(__name__)
 parser = default_parser()
 DEBUG = True
 logger.info("IN CMD MODE")
+
 args = parser.parse_args()
 train_seed_fixed = args.train_seed
 saving_criterion_acc_fixed = args.saving_criterion_acc
@@ -56,8 +57,8 @@ fp16_fixed = args.fp16
 learning_rate_fixed = args.learning_rate
 teacher_prediction_fixed = args.teacher_prediction
 num_train_epochs_fixed = args.num_train_epochs
-
 task_name_fixed = args.task
+
 if DEBUG:
     logger.info("IN DEBUG MODE")
     
@@ -107,8 +108,7 @@ if learning_rate_fixed is not None:
 if teacher_prediction_fixed is not None:
     args.teacher_prediction = teacher_prediction_fixed
 if num_train_epochs_fixed is not None:
-    args.num_train_epochs = num_train_epochs_fixed
-    
+    args.num_train_epochs = num_train_epochs_fixed  
 if args.task_name.lower() in ['cola', 'mrpc']:
     args.train_batch_size = 32    
 
@@ -125,6 +125,7 @@ device, n_gpu = args.device, args.n_gpu
 random.seed(args.train_seed)
 np.random.seed(args.train_seed)
 torch.manual_seed(args.train_seed)
+
 if args.n_gpu > 0:
     torch.cuda.manual_seed_all(args.train_seed)
 
