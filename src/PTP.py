@@ -1,5 +1,4 @@
-"""
-A module that runs Pretraining with Teacher's Predictions (PTP) on student models. 
+"""A module that runs Pretraining with Teacher's Predictions (PTP) on student models. 
 The basic structure of the code is analogous to 'src/finetune.py'
 """
 
