@@ -114,8 +114,8 @@ if args.task_name.lower() in ['cola', 'mrpc']:
 args.model_type = model_type_fixed
 args.raw_data_dir = os.path.join(HOME_DATA_FOLDER, 'data_raw', args.task_name)
 args.feat_data_dir = os.path.join(HOME_DATA_FOLDER, 'data_feat', args.task_name)
-
 args.train_batch_size = args.train_batch_size // args.gradient_accumulation_steps
+
 logger.info('actual batch size on all GPU = %d' % args.train_batch_size)
 device, n_gpu = args.device, args.n_gpu
 
