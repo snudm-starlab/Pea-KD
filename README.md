@@ -163,3 +163,20 @@ make
     --load_model_dir 'run-1/PTP.encoder_loss.pkl' \
     --output_dir 'run-1/final_results'
     ```
+
+## Citation
+
+Please cite the following paper if you use our code:
+```
+@article{ChoK22,
+    author = {Cho, Ikhyun AND Kang, U},
+    journal = {PLOS ONE},
+    publisher = {Public Library of Science},
+    title = {Pea-KD: Parameter-efficient and accurate Knowledge Distillation on BERT},
+    year = {2022},
+    month = {02},
+    volume = {17},
+    pages = {1-12},
+    number = {2},
+}
+```
